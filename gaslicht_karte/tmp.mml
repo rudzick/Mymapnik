@@ -1,0 +1,116 @@
+scale: 1
+metatile: 2
+buffer-size: 512
+name: OpenStreetMap Carto
+description: A general-purpose OpenStreetMap mapnik style, in CartoCSS
+bounds: &world
+  - 6.74
+  - 51.21
+  - 6.81
+  - 51.27
+center:
+  - 6.775
+  - 51.24
+  - 18
+format: png
+#http://mapnik.org/mapnik-reference/#3.0.22/raster
+#raster-scaling: lanczos;
+#raster-colorizer-default-mode: exact;
+interactivity: false
+minzoom: 0
+maxzoom: 24
+srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+
+# Various parts to be included later on
+_parts:
+  # Extents are used for tilemill, and don't actually make it to the generated XML
+  extents: &extents
+    extent: *world
+    srs-name: "900913"
+    srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+  extents84: &extents84
+    extent: *world
+    srs-name: "WGS84"
+    srs: "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+  osm2pgsql: &osm2pgsql
+    type: "postgis"
+    password: ""
+    host: "/var/run/postgresql/"
+    port: ""
+    user: "postgres"
+    dbname: "gis"
+    key_field: ""
+    geometry_field: "way"
+    extent: "-20037508,-20037508,20037508,20037508"
+
+Stylesheet:
+  - style-gaslaternen-nacht.mss
+  - ../fonts.mss
+  - ../amenity-points.mss
+  - gaslaternenmodell.mss
+
+  - gaslaternen_nachtmarker.mss
+
+
+Layer:
+
+  - id: gaslaternen_nachtmarker
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way,
+            highway
+          FROM planet_osm_point  
+          WHERE "highway" = 'street_lamp'
+            AND tags->'lamp_type' = 'gaslight'
+        ) AS Gaslaternenmodell                        
+    properties:
+      minzoom: 5
+      maxzoom: 17
+
+  - id: gaslaternen_modell
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way,
+            highway,
+             CASE
+              WHEN tags->'lamp_flames' IS NULL THEN ''
+              ELSE CONCAT(tags->'lamp_flames','-fl. ')
+             END AS flammen,
+             CASE
+              WHEN tags->'lamp_model:de' LIKE 'Reihenleuchte%BAMAG%U%13%H' THEN 'Reihenleuchte BAMAG' || E'\u00a0' || 'U13H'
+              WHEN tags->'lamp_model:de' LIKE 'Aufsatzleuchte%BAMAG%U%7' THEN 'Aufsatzleuchte BAMAG' || E'\u00a0' || 'U7'
+              -- WHEN tags->'lamp_model:de' LIKE 'Aufsatzleuchte%BAMAG%U%7' THEN 'Aufsatzleuchte BAMAG U7'
+              WHEN tags->'lamp_model:de' LIKE 'Hängeleuchte%BAMAG%A%11' THEN 'Hängeleuchte BAMAG' || E'\u00a0' || 'A11'
+              WHEN tags->'lamp_model:de' LIKE 'Hängeleuchte%BAMAG%A%21' THEN 'Hängeleuchte BAMAG' || E'\u00a0' || 'A21'
+              WHEN tags->'lamp_model:de' LIKE '%Model%leuchte%Berlin' THEN 'Modellleuchte Berlin'
+              WHEN tags->'lamp_model:de' LIKE 'Gas%Zylinderleuchte' THEN 'Zylinderleuchte'
+              ELSE tags->'lamp_model:de'
+             END AS modell,
+             CASE
+              WHEN (COALESCE(tags->'lamp_ref',tags->'lamp_ref_swd',tags->'ref')) IS NULL THEN ''
+              WHEN LENGTH(COALESCE(tags->'lamp_ref',tags->'lamp_ref_swd',tags->'ref')) > 5 THEN CHR(10) || COALESCE(tags->'lamp_ref',tags->'lamp_ref_swd',tags->'ref')
+              WHEN tags->'object:street' IS NULL THEN CONCAT(' - ',COALESCE(tags->'lamp_ref',tags->'lamp_ref_swd',tags->'ref'))
+              ELSE CONCAT(CHR(10),tags->'object:street',' / ',COALESCE(tags->'lamp_ref',tags->'lamp_ref_swd',tags->'ref'))
+             END AS nummer,
+             CASE
+              WHEN ( tags->'lamp_mount' IS NULL AND tags->'lamp_mount_type' IS NULL AND tags->'lamp_mount_type:de' IS NULL AND tags->'lamp_mount:de' IS NULL AND tags->'description' IS NULL AND tags->'description:de' IS NULL ) THEN ''
+              WHEN tags->'lamp_mount_type:de' IS NOT NULL THEN CONCAT(CHR(10),tags->'lamp_mount_type:de')
+              WHEN tags->'lamp_mount' LIKE '%cast%steel%mast' OR tags->'lamp_mount_type' LIKE '%cast%' THEN CONCAT(CHR(10),'Bündelpfeilermast')
+              WHEN tags->'lamp_mount' = 'bent_mast' THEN CONCAT(CHR(10),'Peitschenmast')
+              WHEN tags->'lamp_mount' = 'straight_mast' THEN CONCAT(CHR(10),'senkrechter Mast')
+              ELSE CONCAT(CHR(10),COALESCE(tags->'lamp_mount:de',tags->'lamp_mount_type',tags->'lamp_mount'),COALESCE(tags->'description:de',tags->'description'))
+             END AS mastform
+          FROM planet_osm_point  
+          WHERE "highway" = 'street_lamp'
+            AND tags->'lamp_type' = 'gaslight'
+        ) AS Gaslaternenmodell                        
+    properties:
+      minzoom: 18
