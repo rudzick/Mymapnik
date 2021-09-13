@@ -1,7 +1,7 @@
 # Mymapnik
 
 ## Baumsorten_Erweiterung
-Für große Zoomstufen erweiterter Mapnik-Style zur Anzeige von Baumarten und -sorten sowie weiteren Angaben wie Pflanzjahr und Wuchsform. Weiterhin werden Parzellennummern von Schrebergärten und Bienenstöcke dargestellt:
+Für große Zoomstufen erweiterter [Mapnik](https://github.com/gravitystorm/openstreetmap-carto)-Style zur Anzeige von Baumarten und -sorten sowie weiteren Angaben wie Pflanzjahr und Wuchsform. Weiterhin werden Parzellennummern von Schrebergärten und Bienenstöcke dargestellt:
 [mymapnik.rudzick.it](https://mymapnik.rudzick.it "OSM-Karte mit (Obst-)Bäumen und Kleingartenparzellen") 
 
 * [Hinweise zum Mappen von Bäumen in OSM](https://wiki.openstreetmap.org/wiki/User:Olr/Tagging_von_B%C3%A4umen)
