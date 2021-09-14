@@ -12,3 +12,4 @@ Für große Zoomstufen erweiterter, auf [openstreetmap-carto](https://github.com
 
 * [Seite im OSM-Wiki zur Berliner Gasbeleuchtung](https://wiki.openstreetmap.org/wiki/Berlin/Gasleuchten_in_Berlin)
 * [Seite im OSM-Wiki zur Düsseldorfer Gasbeleuchtung](https://wiki.openstreetmap.org/wiki/D%C3%BCsseldorf/Projekte/Gaslaternen/Tagging)
+* [Lightning-Talk auf der FOSSGIS 2021](https://doi.org/10.5446/53886)
