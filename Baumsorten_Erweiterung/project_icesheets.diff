@@ -1,0 +1,127 @@
+155,280d154
+<   - id: icesheet-poly
+<     geometry: polygon
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way
+<           FROM icesheet_polygons
+<         ) AS icesheet_polygons
+<     properties:
+<       minzoom: 5
+<   - id: water-lines-casing
+<     geometry: linestring
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way,
+<             waterway,
+<             CASE WHEN tags->'intermittent' IN ('yes')
+<               OR tags->'seasonal' IN ('yes', 'spring', 'summer', 'autumn', 'winter', 'wet_season', 'dry_season')
+<               THEN 'yes' ELSE 'no' END AS int_intermittent,
+<             CASE WHEN tunnel IN ('yes', 'culvert') 
+<               OR waterway='canal' AND tunnel = 'flooded'
+<               THEN 'yes' ELSE 'no' END AS int_tunnel
+<           FROM planet_osm_line
+<           WHERE waterway IN ('stream', 'drain', 'ditch')
+<         ) AS water_lines_casing
+<     properties:
+<       minzoom: 13
+<   - id: water-lines-low-zoom
+<     geometry: linestring
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way,
+<             waterway,
+<             CASE WHEN tags->'intermittent' IN ('yes')
+<               OR tags->'seasonal' IN ('yes', 'spring', 'summer', 'autumn', 'winter', 'wet_season', 'dry_season')
+<               THEN 'yes' ELSE 'no' END AS int_intermittent
+<           FROM planet_osm_line
+<           WHERE waterway = 'river'
+<         ) AS water_lines_low_zoom
+<     properties:
+<       minzoom: 8
+<       maxzoom: 11
+<   - id: water-lines
+<     geometry: linestring
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way,
+<             waterway,
+<             name,
+<             CASE WHEN tags->'intermittent' IN ('yes')
+<               OR tags->'seasonal' IN ('yes', 'spring', 'summer', 'autumn', 'winter', 'wet_season', 'dry_season')
+<               THEN 'yes' ELSE 'no' END AS int_intermittent,
+<             CASE WHEN tunnel IN ('yes', 'culvert') 
+<               OR waterway = 'canal' AND tunnel = 'flooded'
+<               THEN 'yes' ELSE 'no' END AS int_tunnel,
+<             'no' AS bridge
+<           FROM planet_osm_line
+<           WHERE waterway IN ('river', 'canal', 'stream', 'drain', 'ditch')
+<             AND (bridge IS NULL OR bridge NOT IN ('yes', 'aqueduct'))
+<           ORDER BY COALESCE(layer,0)
+<         ) AS water_lines
+<     properties:
+<       minzoom: 12
+<   - id: water-areas
+<     geometry: polygon
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way,
+<             "natural",
+<             waterway,
+<             landuse,
+<             way_area/NULLIF(POW(!scale_denominator!*0.001*0.28,2),0) AS way_pixels,
+<             CASE WHEN tags->'intermittent' IN ('yes')
+<               OR tags->'seasonal' IN ('yes', 'spring', 'summer', 'autumn', 'winter', 'wet_season', 'dry_season')
+<               OR tags->'basin' IN ('detention', 'infiltration')
+<               THEN 'yes' ELSE 'no' END AS int_intermittent
+<           FROM planet_osm_polygon
+<           WHERE
+<             (waterway IN ('dock', 'riverbank')
+<               OR landuse IN ('reservoir', 'basin')
+<               OR "natural" IN ('water', 'glacier'))
+<             AND building IS NULL
+<             AND way_area > 1*!pixel_width!::real*!pixel_height!::real
+<           ORDER BY COALESCE(layer,0), way_area DESC
+<         ) AS water_areas
+<     properties:
+<       cache-features: true
+<       minzoom: 0
+<   - id: ocean-lz
+<     geometry: polygon
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way
+<           FROM simplified_water_polygons
+<         ) AS ocean_lz
+<     properties:
+<       maxzoom: 9
+<   - id: ocean
+<     geometry: polygon
+<     <<: *extents
+<     Datasource:
+<       <<: *osm2pgsql
+<       table: |-
+<         (SELECT
+<             way
+<           FROM water_polygons
+<         ) AS ocean
+<     properties:
+<       minzoom: 10
