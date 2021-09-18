@@ -13,7 +13,6 @@ cp $CARTO_DIR/project.mml Baumsorten_Erweiterung/$PROJEKTFILE
 cd Baumsorten_Erweiterung/
 sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik.diff > project_mymapnik_cwd.diff
 sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik_mypostgis.diff > project_mymapnik_mypostgis_cwd.diff
-echo "Hallo"
 cp $CARTO_DIR/style/amenity-points.mss amenity-points_trees_zoom16.mss
 patch -p0 amenity-points_trees_zoom16.mss < amenity_points.diff
 patch -p0 $PROJEKTFILE < project_mymapnik_cwd.diff
@@ -26,7 +25,7 @@ cat bienenstoecke_layer.mml >> $PROJEKTFILE
 cat leisure_description_layer.mml >> $PROJEKTFILE
 cp $PROJEKTFILE $CARTO_DIR
 cd $CARTO_DIR
-/usr/bin/carto $PROJEKTFILE > $PROJEKTFILEXML
+/usr/local/bin/carto $PROJEKTFILE > $PROJEKTFILEXML
 mv $PROJEKTFILE $PROJEKTFILEXML $CWD
 
 
