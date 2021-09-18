@@ -1,0 +1,24 @@
+- id: parzellennummern
+    class: parzellennummern
+    geometry: polygon
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+       (SELECT
+            way,                                                                                    
+            ref                                                                                     
+            FROM planet_osm_polygon                                                                 
+             WHERE ref IS NOT NULL                                                                  
+               AND tags->'allotments' = 'plot'
+               AND ST_Intersects(way, !bbox!)
+            UNION                                                                                   
+            SELECT ST_MakePolygon(ST_AddPoint(way, ST_StartPoint(way))) AS way,                     
+                                                                           ref                      
+             FROM planet_osm_line                                                                   
+              WHERE ref IS NOT NULL                                                                 
+                AND tags->'allotments' = 'plot'
+                AND ST_Intersects(way, !bbox!)
+              ) AS way                                                                              
+    properties:
+       minzoom: 18

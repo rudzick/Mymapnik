@@ -1,0 +1,16 @@
+  - id: leisure_description
+    class: leisure_description
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+       (SELECT
+            way,
+            leisure,
+            COALESCE(tags->'name:de',tags->'name',tags->'description:de',tags->'description') AS beschreibung
+            FROM planet_osm_point                                                                   
+             WHERE "leisure" = 'pitch'
+              ) AS feature                                                                          
+    properties:
+       minzoom: 18

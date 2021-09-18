@@ -1,0 +1,62 @@
+ - id: strauch
+    geometry: polygon
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, "natural"
+          FROM planet_osm_point
+          WHERE "natural" = 'shrub'
+        ) AS shrubs
+    properties:
+      cache-features: true
+      minzoom: 21
+  - id: strauchsorte_zoom_21
+    class: strauchsorte_zoom_21
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+       (SELECT
+            way,                                                                                    
+            COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus') AS strauchsorte
+            FROM planet_osm_point                                                                   
+             WHERE "natural" = 'shrub'
+              ) AS feature                                                                          
+    properties:
+       minzoom: 21
+       maxzoom: 21
+  - id: strauchsorte_zoom_22
+    class: strauchsorte_zoom_22
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+       (SELECT
+            way,                                                                                    
+            REPLACE(COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus'),' ',E'\u00a0') AS strauchsorte
+            FROM planet_osm_point                                                                   
+             WHERE "natural" = 'shrub'
+              ) AS feature                                                                          
+    properties:
+       minzoom: 22
+  - id: strauchalter
+    class: strauchalter
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+       (SELECT
+            way,                                                                                    
+            REPLACE(COALESCE(tags->'description',''),' ',E'\u00a0') AS beschreibung,
+            REPLACE(REPLACE(tags->'sex','female','weibl.'),'male','männl.') AS geschlecht,
+            REPLACE(REPLACE(REPLACE(tags->'start_date','before','vor'),'after','nach'),' ',E'\u00a0') AS strauchalter
+            FROM planet_osm_point                                                                   
+             WHERE "natural" = 'shrub'
+              ) AS feature                                                                          
+    properties:
+       minzoom: 22
