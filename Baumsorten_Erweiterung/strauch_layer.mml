@@ -1,4 +1,4 @@
- - id: strauch
+  - id: strauch
     geometry: polygon
     <<: *extents
     Datasource:
