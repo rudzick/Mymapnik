@@ -12,7 +12,7 @@ PROJEKTFILEXML="project_mymapnik.xml"
 cp $CARTO_DIR/project.mml Baumsorten_Erweiterung/$PROJEKTFILE
 cd Baumsorten_Erweiterung/
 # Icesheets und andere nicht benötigte Layer herauslöschen
-patch -p0 $PROJEKTFILE < project_icesheets.diff
+# patch -p0 $PROJEKTFILE < project_icesheets.diff
 ###
 sed -s "s+Baumsorten_Erweiterung+$CWD/Baumsorten_Erweiterung+g" project_mymapnik.diff > project_mymapnik_cwd.diff
 sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik_mypostgis.diff > project_mymapnik_mypostgis_cwd.diff
