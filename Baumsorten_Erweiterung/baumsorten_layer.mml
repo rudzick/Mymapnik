@@ -109,7 +109,7 @@
               ) AS feature                                                                          
     properties:
        minzoom: 22
- - id: wuchs
+  - id: wuchs
     class: wuchs
     geometry: point
     <<: *extents
