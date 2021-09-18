@@ -1,4 +1,4 @@
-- id: parzellennummern
+  - id: parzellennummern
     class: parzellennummern
     geometry: polygon
     <<: *extents
