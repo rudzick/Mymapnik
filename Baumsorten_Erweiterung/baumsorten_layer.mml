@@ -1,5 +1,4 @@
-  - id: apfelbaeume_zoom_21
-    class: apfelbaeume_zoom_21
+  - id: baumsorten_zoom_21
     geometry: point
     <<: *extents
     Datasource:
@@ -37,7 +36,6 @@
        minzoom: 19
        maxzoom: 21
   - id: taxon
-    class: taxon
     geometry: point
     <<: *extents
     Datasource:
@@ -54,8 +52,7 @@
               ) AS feature                                                                          
     properties:
        minzoom: 20
-  - id: apfelbaeume_zoom_22
-    class: apfelbaeume_zoom_22
+  - id: baumsorten_zoom_22
     geometry: point
     <<: *extents
     Datasource:
@@ -110,7 +107,6 @@
     properties:
        minzoom: 22
   - id: wuchs
-    class: wuchs
     geometry: point
     <<: *extents
     Datasource:
