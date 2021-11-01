@@ -18,7 +18,18 @@ sed -s "s+Baumsorten_Erweiterung+$CWD/Baumsorten_Erweiterung+g" my_mms-files.mml
 sed -n -i -e '/Layer:/r my_mms-files_cwd.mml' -e 1x -e '2,${x;p}' -e '${x;p}' project_mymapnik.mml
 sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik_mypostgis.diff > project_mymapnik_mypostgis_cwd.diff
 # ergänze amenity-points.mss,  um Baumsymbole ab Zoomlevel 17 zu zeigen
-sed "/[natural = 'tree'] {/ r trees_zoom16.mss" $CARTO_DIR/style/amenity-points.mss >! amenity-points_trees_zoom16.mss
+suchmuster_canopy="[natural = 'tree'] {";
+suchmuster_trunk="[natural = 'tree']::trunk {";
+cat "$CARTO_DIR/style/amenity-points.mss" | while IFS= read -r line;
+do
+    echo "$line";
+    if [[ "$line" =~ "$suchmuster_canopy" ]] ; then
+	cat trees_zoom16_canopy.mss;
+    fi
+    if [[ "$line" =~ "$suchmuster_trunk" ]] ; then
+	cat trees_zoom16_trunk.mss;
+    fi
+done > amenity-points_trees_zoom16.mss
 #
 patch -p0 $PROJEKTFILE < project_mymapnik_mypostgis_cwd.diff
 rm project_mymapnik_cwd.diff project_mymapnik_mypostgis_cwd.diff

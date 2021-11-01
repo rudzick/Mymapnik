@@ -1,4 +1,4 @@
-[zoom >= 17] {
+     [zoom >= 17] {
         marker-fill: green;
         marker-allow-overlap: true;
         marker-line-width: 0;
