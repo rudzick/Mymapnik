@@ -69,7 +69,7 @@
 	text-size: 20;
     }
     text-face-name: @oblique-fonts;
-    [obstbaumsorte= ~ "^\w\.@-"] {
+    [obstbaumsorte =~ "^\w\.@-"] {
         text-face-name: @standard-font;
     }
     text-halo-radius: @standard-halo-radius;
