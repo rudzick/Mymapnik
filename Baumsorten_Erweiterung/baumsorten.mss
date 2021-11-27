@@ -69,9 +69,6 @@
 	text-size: 20;
     }
     text-face-name: @oblique-fonts;
-    [obstbaumsorte = "Bergpfirsich"] {
-        text-face-name: @standard-font;
-    }
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
     text-placement: interior;
