@@ -23,7 +23,7 @@
               WHEN tags->'fire_hydrant:diameter'  IS NOT NULL  THEN CONCAT('Nenndurchmesser', E'\u00a0', tags->'fire_hydrant:diameter')
              END AS nenndurchmesser
           FROM planet_osm_point                                                                     
-          WHERE "tags->'emergency'" = 'fire_hydrant'
+          WHERE "emergency" = 'fire_hydrant'
         ) AS hydranten                                                                          
     properties:
       minzoom: 20
