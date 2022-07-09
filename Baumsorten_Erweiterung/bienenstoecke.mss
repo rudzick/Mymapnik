@@ -6,7 +6,13 @@
      marker-placement: interior;
      marker-clip: false;
      [zoom = 20] {
-         marker-height: 6px;
+         marker-height: 8px;
+     }
+     [zoom = 21] {
+         marker-height: 10px;
+     }
+     [zoom >= 22] {
+         marker-height: 18px;
      }
    }
 }
