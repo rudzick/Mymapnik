@@ -11,6 +11,7 @@
     text-placement: interior;
     marker-placement: interior;
     marker-clip: false;
+    marker-file: url('extra_symbols/Emergency_fire_hydrant.svg');
     [zoom >= 21] {
           marker-height: 12;
           text-size: 10;
