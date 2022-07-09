@@ -13,4 +13,4 @@
             OR "craft" = 'beekeeper'
         ) AS bienenstoecke                                                                          
     properties:
-      minzoom: 19
+      minzoom: 20

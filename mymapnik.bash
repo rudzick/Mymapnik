@@ -4,7 +4,10 @@ if [ $# -ne 1 ]; then
     exit -1
 fi
 CWD="$(pwd -P)"
+MARKER_DIR="Baumsorten_Erweiterung/extra_symbols"
+# Kopiere Verzeichnis mit Extra-Markern in das Openstreetmap-Carto-Verzeichnis
 CARTO_DIR="$(cd "$1" && pwd -P)"
+cp -r $MARKER_DIR $CARTO_DIR
 echo $CWD
 echo $CARTO_DIR
 PROJEKTFILE="project_mymapnik.mml"
@@ -36,7 +39,7 @@ rm project_mymapnik_cwd.diff project_mymapnik_mypostgis_cwd.diff
 cat parzellennummern_layer.mml >> $PROJEKTFILE
 sed -e '/###obstbaumarten###/r./obstbaumarten.sql' baumsorten_layer.mml >> $PROJEKTFILE
 cat strauch_layer.mml >> $PROJEKTFILE
-# cat bienenstoecke_layer.mml >> $PROJEKTFILE
+cat bienenstoecke_layer.mml >> $PROJEKTFILE
 cat leisure_description_layer.mml >> $PROJEKTFILE
 cp $PROJEKTFILE $CARTO_DIR
 cd $CARTO_DIR
