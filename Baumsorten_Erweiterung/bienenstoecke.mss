@@ -6,7 +6,7 @@
      marker-placement: interior;
      marker-clip: false;
      [zoom = 20] {
-         marker-transform: matrix (0.6, 0, 0, 0.6, 0, 0);
+         marker-height: 6px;
      }
    }
 }
