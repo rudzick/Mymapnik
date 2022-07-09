@@ -19,7 +19,7 @@
               WHEN tags->'fire_hydrant:position' = 'green' THEN 'Grünstreifen' 
               WHEN tags->'fire_hydrant:position' = 'parking_lot' THEN 'Parkplatz' 
              END AS standort,
-             IF (tags->'fire_hydrant:diameter')  IS NOT NULL THEN  CONCAT('Nenndurchmesser', E'\u00a0', tags->'fire_hydrant:diameter') END AS nenndurchmesser
+             IF ( tags->'fire_hydrant:diameter'  IS NOT NULL ) THEN  CONCAT('Nenndurchmesser', E'\u00a0', tags->'fire_hydrant:diameter') END IF AS nenndurchmesser
           FROM planet_osm_point                                                                     
           WHERE "emergency" = 'fire_hydrant'
         ) AS hydranten                                                                          
