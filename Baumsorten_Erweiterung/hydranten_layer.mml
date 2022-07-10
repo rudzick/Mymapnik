@@ -6,7 +6,7 @@
       <<: *osm2pgsql
       table: |-
         (SELECT
-            way,
+            way, "emergency",
              CASE
               WHEN tags->'fire_hydrant:type' = 'underground' THEN 'Unterflurhydrant' 
               WHEN tags->'fire_hydrant:type' = 'pillar' THEN 'Überflurhydrant' 
