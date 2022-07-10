@@ -6,9 +6,9 @@
       <<: *osm2pgsql
       table: |-
         (SELECT
-            way, "landuse"
+            way, "emergency"
           FROM planet_osm_point                                                                     
-          WHERE "landuse" = 'fire_hydrant'
+          WHERE "emergency" = 'fire_hydrant'
         ) AS hydranten                                                                          
     properties:
       minzoom: 20
