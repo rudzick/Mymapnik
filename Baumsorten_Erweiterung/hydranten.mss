@@ -8,7 +8,7 @@
              marker-height: 12px;
              text-name:  [hydranttyp] + [standort] + [nenndurchmesser];
             text-face-name: @standard-font;
-            text-wrap-width: @standard-wrap-width;
+            text-wrap-width: 20;
             text-line-spacing: @standard-line-spacing-size;
             text-fill: 'red';
             text-halo-radius: @standard-halo-radius;
