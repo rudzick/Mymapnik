@@ -8,17 +8,17 @@
         (SELECT
             way, "emergency",
              CASE
-              WHEN tags->'fire_hydrant:type' = 'underground' THEN 'Unterflurhydrant' 
-              WHEN tags->'fire_hydrant:type' = 'pillar' THEN 'Überflurhydrant' 
-              WHEN tags->'fire_hydrant:type' = 'wall' THEN 'Wandhydrant' 
-              WHEN tags->'fire_hydrant:type' = 'pipe' THEN 'Anschlussrohr'
+              WHEN tags->'fire_hydrant:type' = 'underground' THEN CONCAT('Unterflurhydrant',E'\u000a)
+              WHEN tags->'fire_hydrant:type' = 'pillar' THEN CONCAT('Überflurhydrant',E'\u000a) 
+              WHEN tags->'fire_hydrant:type' = 'wall' THEN CONCAT('Wandhydrant',E'\u000a) 
+              WHEN tags->'fire_hydrant:type' = 'pipe' THEN CONCAT('Anschlussrohr',E'\u000a)
               ELSE tags->'fire_hydrant:type'
              END AS hydranttyp,
              CASE
-              WHEN tags->'fire_hydrant:position' = 'sidewalk' THEN 'Gehweg' 
-              WHEN tags->'fire_hydrant:position' = 'lane' THEN 'Fahrbahn' 
-              WHEN tags->'fire_hydrant:position' = 'green' THEN 'Grünstreifen' 
-              WHEN tags->'fire_hydrant:position' = 'parking_lot' THEN 'Parkplatz' 
+              WHEN tags->'fire_hydrant:position' = 'sidewalk' THEN CONCAT('Gehweg',E'\u000a)
+              WHEN tags->'fire_hydrant:position' = 'lane' THEN CONCAT('Fahrbahn',E'\u000a)
+              WHEN tags->'fire_hydrant:position' = 'green' THEN CONCAT('Grünstreifen',E'\u000a)
+              WHEN tags->'fire_hydrant:position' = 'parking_lot' THEN CONCAT('Parkplatz',E'\u000a) 
               ELSE tags->'fire_hydrant:position'
              END AS standort,
             CASE
