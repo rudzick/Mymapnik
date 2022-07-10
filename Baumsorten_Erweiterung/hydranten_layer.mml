@@ -6,7 +6,7 @@
       <<: *osm2pgsql
       table: |-
         (SELECT
-            way,
+            way
           FROM planet_osm_point                                                                     
           WHERE "emergency" = 'fire_hydrant'
         ) AS hydranten                                                                          
