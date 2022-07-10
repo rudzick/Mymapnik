@@ -1,11 +1,10 @@
 #hydranten {
-    opacity: 1.0;
-    marker-height: 8;
+    marker-height: 8px;
     marker-placement: interior;
     marker-clip: false;
     marker-file: url('extra_symbols/Emergency_fire_hydrant.svg');
     [zoom >= 21] {
-          marker-height: 12;
+          marker-height: 12px;
  /*         text-name:  [hydranttyp] + [standort] + [nenndurchmesser];
          text-face-name: @standard-font;
          text-wrap-width: @standard-wrap-width;
