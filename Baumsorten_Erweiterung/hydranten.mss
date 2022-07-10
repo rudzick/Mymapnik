@@ -1,7 +1,7 @@
 #hydranten {
     text-face-name: @standard-font;
     opacity: 1.0;
-    text-name: [''];
+    text-name: [hydranttyp];
     marker-height: 8;
     text-wrap-width: @standard-wrap-width;
     text-line-spacing: @standard-line-spacing-size;
