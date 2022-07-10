@@ -6,7 +6,25 @@
       <<: *osm2pgsql
       table: |-
         (SELECT
-            way, "emergency"
+            way, "emergency",
+             CASE
+              WHEN tags->'fire_hydrant:type' = 'underground' THEN 'Unterflurhydrant' 
+              WHEN tags->'fire_hydrant:type' = 'pillar' THEN 'Überflurhydrant' 
+              WHEN tags->'fire_hydrant:type' = 'wall' THEN 'Wandhydrant' 
+              WHEN tags->'fire_hydrant:type' = 'pipe' THEN 'Anschlussrohr'
+              ELSE tags->'fire_hydrant:type'
+             END AS hydranttyp,
+             CASE
+              WHEN tags->'fire_hydrant:position' = 'sidewalk' THEN 'Gehweg' 
+              WHEN tags->'fire_hydrant:position' = 'lane' THEN 'Fahrbahn' 
+              WHEN tags->'fire_hydrant:position' = 'green' THEN 'Grünstreifen' 
+              WHEN tags->'fire_hydrant:position' = 'parking_lot' THEN 'Parkplatz' 
+              ELSE tags->'fire_hydrant:position'
+             END AS standort,
+            CASE
+              WHEN tags->'fire_hydrant:diameter'  IS NOT NULL  THEN CONCAT('Nenndurchmesser', E'\u00a0', tags->'fire_hydrant:diameter')
+             ELSE tags->'fire_hydrant:diameter'
+            END AS nenndurchmesser
           FROM planet_osm_point                                                                     
           WHERE "emergency" = 'fire_hydrant'
         ) AS hydranten                                                                          
