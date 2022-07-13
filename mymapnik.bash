@@ -41,6 +41,7 @@ sed -e '/###obstbaumarten###/r./obstbaumarten.sql' baumsorten_layer.mml >> $PROJ
 cat strauch_layer.mml >> $PROJEKTFILE
 cat bienenstoecke_layer.mml >> $PROJEKTFILE
 cat hydranten_layer.mml >> $PROJEKTFILE
+cat strassenbrunnen_layer.mml >> $PROJEKTFILE
 cat leisure_description_layer.mml >> $PROJEKTFILE
 cp $PROJEKTFILE $CARTO_DIR
 cd $CARTO_DIR
