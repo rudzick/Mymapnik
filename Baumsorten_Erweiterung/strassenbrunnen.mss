@@ -46,7 +46,7 @@
              text-halo-fill: @standard-halo-fill;
              text-placement: interior;
              text-size: 12;
-             text-dy: 80;
+             text-dy: 45;
        }
     }
 }
