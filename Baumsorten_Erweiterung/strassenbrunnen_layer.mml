@@ -6,7 +6,7 @@
       <<: *osm2pgsql
       table: |-
         (SELECT
-            way, 
+            way, "man_made", "emergency",
               tags->'pump:style' AS pumpenstil,
                tags->'pump' = 'manual' AS pump,      
               CASE
