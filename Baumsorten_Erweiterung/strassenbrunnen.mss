@@ -1,6 +1,6 @@
 #strassenbrunnen {
     [man_made = 'water_well'][pumpe = 'manual'][zoom >= 20] {
-       marker-height: 10px;
+       marker-height: 20px;
        marker-placement: interior;
        marker-clip: false;
        marker-file: url('extra_symbols/Straßenbrunnen_modern_Silhouette.png');
@@ -23,7 +23,7 @@
               marker-file: url('extra_symbols/Sechseckgehäuse_Silhouette.png');
        }
        [zoom >= 21] {
-             marker-height: 20px;
+             marker-height: 40px;
              text-name:  [nummer] + ' ' + [pumpenstil];
              text-face-name: @standard-font;
              text-wrap-width: 10;
@@ -33,7 +33,7 @@
              text-halo-fill: @standard-halo-fill;
              text-placement: interior;
              text-size: 12;
-             text-dy: 13;
+             text-dy: 33;
        }
     }
 }

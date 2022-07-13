@@ -8,7 +8,7 @@
         (SELECT
             way, "man_made", "emergency",
               tags->'pump:style' AS pumpenstil,
-               tags->'pump' AS pumpe,      
+              tags->'pump' AS pumpe,      
               CASE
                 WHEN tags->'ref' <> 'none' THEN tags->'ref'
               END AS nummer
