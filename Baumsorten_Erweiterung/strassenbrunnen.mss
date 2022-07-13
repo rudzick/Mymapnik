@@ -22,7 +22,7 @@
        [pumpenstil = 'Borsig'] {
               marker-file: url('extra_symbols/Sechseckgehäuse_Silhouette.png');
        }
-       [zoom >= 21] {
+       [zoom = 21] {
              marker-height: 50px;
              text-name:  [nummer] + ' ' + [pumpenstil];
              text-face-name: @standard-font;
@@ -33,7 +33,20 @@
              text-halo-fill: @standard-halo-fill;
              text-placement: interior;
              text-size: 12;
-             text-dy: 33;
+             text-dy: 30;
+       }
+       [zoom >= 22] {
+             marker-height: 100px;
+             text-name:  [nummer] + ' ' + [pumpenstil];
+             text-face-name: @standard-font;
+             text-wrap-width: 10;
+             text-line-spacing: @standard-line-spacing-size;
+             text-fill: '#35412E';
+             text-halo-radius: @standard-halo-radius;
+             text-halo-fill: @standard-halo-fill;
+             text-placement: interior;
+             text-size: 12;
+             text-dy: 80;
        }
     }
 }
