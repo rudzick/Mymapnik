@@ -24,7 +24,7 @@
        }
        [zoom >= 21] {
              marker-height: 20px;
-             text-name:  [ref] + ' ' [pumpenstil];
+             text-name:  [ref] + ' ' + [pumpenstil];
              text-face-name: @standard-font;
              text-wrap-width: 10;
              text-line-spacing: @standard-line-spacing-size;
