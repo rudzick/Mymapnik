@@ -1,5 +1,5 @@
 #strassenbrunnen {
-    [man_made = 'water_well'][pump = 'manual'][zoom >= 20] {
+    [man_made = 'water_well'][pumpe = 'manual'][zoom >= 20] {
        marker-height: 10px;
        marker-placement: interior;
        marker-clip: false;
