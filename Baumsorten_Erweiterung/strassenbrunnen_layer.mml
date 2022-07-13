@@ -8,12 +8,12 @@
         (SELECT
             way, 
               tags->'pump:style' AS pumpenstil,
+               tags->'pump' = 'manual' AS pump,      
               CASE
                 WHEN tags->'ref' <> 'none' THEN tags->'ref'
               END AS nummer
           FROM planet_osm_point                                                                     
           WHERE "man_made" = 'water_well'
-          AND  tags->'pump' = 'manual'
           AND "emergency" = 'drinking_water'
         ) AS strassenbrunnen                                                                          
     properties:
