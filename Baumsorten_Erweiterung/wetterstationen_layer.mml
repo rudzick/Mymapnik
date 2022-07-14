@@ -15,7 +15,7 @@
               END AS nummer,
               CASE
                 WHEN tags->'ref:wmo' <> 'none' THEN CONCAT('WMO-Id', E'\u00a0', tags->'ref:wmo')
-              END AS wmo-id
+              END AS wmo_id
           FROM planet_osm_point                                                                     
           WHERE "man_made" = 'monitoring_station'
         ) AS wetterstationen                                                                          
