@@ -1,9 +1,46 @@
 # Extra-Marker für hohe Zoomstufen
-
+https://wiki.openstreetmap.org/wiki/User:Chrisana13
 ###Bienenstöcke:
-[https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg]https://wiki.openstreet(map.org/wiki/File:ID-man-made-beehive.svg)
+[https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg](https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg)
 ID-man-made-beehive.svg
 
 ###Hydranten:
 [https://wiki.openstreetmap.org/wiki/File:Emergency_fire_hydrant.svg](https://wiki.openstreetmap.org/wiki/File:Emergency_fire_hydrant.svg)
 Emergency_fire_hydrant.svg
+
+##Straßenbrunnen
+https://wiki.openstreetmap.org/wiki/DE:Berliner_Stra%C3%9Fenbrunnen#Lauchhammer
+
+###Lauchhammerbrunnen
+https://commons.wikimedia.org/wiki/File:Lauchhammerbrunnen_Silhouette.png
+SupapleX, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+Lauchhammerbrunnen_Silhouette.png
+
+###Krausebrunnen
+https://commons.wikimedia.org/wiki/File:Krausebrunnen_Silhouette.png
+SupapleX, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+Krausebrunnen_Silhouette.png
+
+### Sechseckgehäuse (Borsig)
+https://commons.wikimedia.org/wiki/File:Sechseckgeh%C3%A4use_Silhouette.png
+SupapleX, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+Sechseckgehäuse_Silhouette.png
+
+###Wappenschildgehäuse (Pankow)
+https://commons.wikimedia.org/wiki/File:Wappenschildgeh%C3%A4use_Silhouette.png
+SupapleX, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+Wappenschildgehäuse_Silhouette.png
+
+###Schliephackepumpe (Rümmler)
+https://commons.wikimedia.org/wiki/File:Schliephackepumpe_Silhouette.png
+SupapleX, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+Schliephackepumpe_Silhouette.png
+
+###Straßenbrunnen modern (Wolf, FSH-L u.a.)
+https://commons.wikimedia.org/wiki/File:Stra%C3%9Fenbrunnen_modern_Silhouette.png
+https://upload.wikimedia.org/wikipedia/commons/2/27/Stra%C3%9Fenbrunnen_modern_Silhouette.png
+Straßenbrunnen_modern_Silhouette.png
+
+##Wetterstation
+https://commons.wikimedia.org/wiki/File:Anemometer_-_The_Noun_Project.svg
+Anemometer_-_The_Noun_Project.svg
