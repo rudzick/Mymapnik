@@ -9,9 +9,13 @@
             way, "man_made",
               tags->'monitoring:weather' AS wetterstation,
               tags->'operator' AS betreiber,      
+              tags->'name' AS name,      
               CASE
                 WHEN tags->'ref' <> 'none' THEN tags->'ref'
-              END AS nummer
+              END AS nummer,
+              CASE
+                WHEN tags->'ref:wmo' <> 'none' THEN CONCAT('WMO-Id', E'\u00a0', tags->'ref:wmo')
+              END AS wmo-id
           FROM planet_osm_point                                                                     
           WHERE "man_made" = 'monitoring_station'
         ) AS wetterstationen                                                                          
