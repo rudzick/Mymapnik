@@ -1,0 +1,19 @@
+  - id: wetterstationen
+    class: wetterstationen
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, "man_made",
+              tags->'monitoring:weather' AS wetterstation,
+              tags->'operator' AS betreiber,      
+              CASE
+                WHEN tags->'ref' <> 'none' THEN tags->'ref'
+              END AS nummer
+          FROM planet_osm_point                                                                     
+          WHERE "man_made" = 'monitoring_station'
+        ) AS wetterstationen                                                                          
+    properties:
+      minzoom: 20
