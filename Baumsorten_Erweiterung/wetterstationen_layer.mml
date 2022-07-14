@@ -9,7 +9,7 @@
             way, "man_made",
               tags->'monitoring:weather' AS wetterstation,
               tags->'operator' AS betreiber,      
-              tags->'name' AS name,      
+              tags->'name' AS stationsname,      
               CASE
                 WHEN tags->'ref' <> 'none' THEN tags->'ref'
               END AS nummer,
