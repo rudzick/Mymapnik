@@ -20,8 +20,8 @@
        }
        [zoom >= 22] {
              marker-height: 40px;
-             text-name:  [stationsname]  + '\ 200A' + [nummer] + '\ 200A' + [wmo_id] + '\ 200A' + [betreiber];
-             text-wrap-character: '\200A';
+             text-name:  [stationsname]  + ''U+200A' + [nummer] + 'U+200A' + [wmo_id] + 'U+200A' + [betreiber];
+             text-wrap-character: 'U+200A';
              text-face-name: @standard-font;
              text-wrap-width: 10;
              text-line-spacing: @standard-line-spacing-size;
