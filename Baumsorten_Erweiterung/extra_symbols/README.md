@@ -44,3 +44,8 @@ Straßenbrunnen_modern_Silhouette.png
 ##Wetterstation
 https://commons.wikimedia.org/wiki/File:Anemometer_-_The_Noun_Project.svg
 Anemometer_-_The_Noun_Project.svg
+
+## Straßenschränke (man_made= street_cabinet)
+Power_cable_distribution_cabinet.svg
+https://wiki.openstreetmap.org/wiki/File:Power_cable_distribution_cabinet.svg
+

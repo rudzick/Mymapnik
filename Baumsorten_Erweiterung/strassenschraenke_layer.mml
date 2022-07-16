@@ -1,0 +1,14 @@
+  - id: strassenschraenke
+    class: strassenschraenke
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, "man_made"
+          FROM planet_osm_point                                                                     
+          WHERE "man_made" = 'street_cabinet'
+        ) AS strassenschraenke                                                                          
+    properties:
+      minzoom: 20
