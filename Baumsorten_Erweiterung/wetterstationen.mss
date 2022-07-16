@@ -6,8 +6,8 @@
        marker-file: url('extra_symbols/Anemometer_-_The_Noun_Project.svg');
        [zoom = 21] {
              marker-height: 30px;
-             text-name:  [stationsname]  + ' ' + [nummer] + ' ' + [wmo_id] + ' ' + [betreiber];
-             text-wrap-character: ' ';
+             text-name:  [stationsname]  + '\n' + [nummer] + '\n' + [wmo_id] + '\n' + [betreiber];
+             text-wrap-character: '\n';
              text-face-name: @standard-font;
              text-wrap-width: 10;
              text-line-spacing: @standard-line-spacing-size;
@@ -15,8 +15,8 @@
              text-halo-radius: @standard-halo-radius;
              text-halo-fill: @standard-halo-fill;
              text-placement: interior;
-             text-size: 12;
-             text-dy: 11;
+             text-size: 10;
+             text-dy: 19;
        }
        [zoom >= 22] {
              marker-height: 40px;
