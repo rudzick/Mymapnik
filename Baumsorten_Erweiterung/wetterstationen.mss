@@ -15,8 +15,8 @@
              text-halo-radius: @standard-halo-radius;
              text-halo-fill: @standard-halo-fill;
              text-placement: interior;
-             text-size: 10;
-             text-dy: 19;
+             text-size: 8;
+             text-dy: 20;
        }
        [zoom >= 22] {
              marker-height: 40px;
