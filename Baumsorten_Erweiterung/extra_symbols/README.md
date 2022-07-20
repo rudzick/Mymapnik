@@ -1,5 +1,9 @@
 # Extra-Marker für hohe Zoomstufen
 https://wiki.openstreetmap.org/wiki/User:Chrisana13
+
+##Maki icons
+https://commons.wikimedia.org/wiki/Maki_icons
+
 ###Bienenstöcke:
 [https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg](https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg)
 ID-man-made-beehive.svg
@@ -44,8 +48,15 @@ Straßenbrunnen_modern_Silhouette.png
 ##Wetterstation
 https://commons.wikimedia.org/wiki/File:Anemometer_-_The_Noun_Project.svg
 Anemometer_-_The_Noun_Project.svg
+https://josm.openstreetmap.de/browser/josm/trunk/images/presets/monitoring_station.png?rev=6385&order=name
+https://ian.umces.edu/media-library/weather-vane/
+Tracey Saxby, Integration and Application Network (ian.umces.edu/media-library)
 
 ## Straßenschränke (man_made= street_cabinet)
 Power_cable_distribution_cabinet.svg
 https://wiki.openstreetmap.org/wiki/File:Power_cable_distribution_cabinet.svg
+
+
+
+
 

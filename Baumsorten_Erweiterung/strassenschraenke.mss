@@ -5,9 +5,12 @@
        marker-clip: false;
        marker-file: url('extra_symbols/Power_cable_distribution_cabinet.svg');
        [zoom = 21] {
-             marker-height: 12px;
+             marker-height: 10px;
        }
        [zoom >= 22] {
+             marker-height: 12px;
+       }
+       [zoom >= 23] {
              marker-height: 20px;
        }
     }
