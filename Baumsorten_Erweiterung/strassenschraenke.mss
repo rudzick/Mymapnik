@@ -3,7 +3,7 @@
        marker-height: 8px;
        marker-placement: interior;
        marker-clip: false;
-       marker-file: url('extra_symbols/Power_cable_distribution_cabinet.svg');
+       marker-file: url('extra_symbols/street_cabinet.svg');
        [zoom = 21] {
              marker-height: 10px;
        }

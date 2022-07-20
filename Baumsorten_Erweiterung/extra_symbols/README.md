@@ -1,6 +1,9 @@
 # Extra-Marker für hohe Zoomstufen
 https://wiki.openstreetmap.org/wiki/User:Chrisana13
 
+#Josm-Icons
+https://github.com/JOSM/josm/blob/master/resources/images/presets/
+
 ##Maki icons
 https://commons.wikimedia.org/wiki/Maki_icons
 
@@ -55,7 +58,11 @@ Tracey Saxby, Integration and Application Network (ian.umces.edu/media-library)
 ## Straßenschränke (man_made= street_cabinet)
 Power_cable_distribution_cabinet.svg
 https://wiki.openstreetmap.org/wiki/File:Power_cable_distribution_cabinet.svg
+https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/street_cabinet.svg
 
+## Fahnenmasten (man_made=flag_pole)
+https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/flag.svg
+flag.svg
 
 
 
