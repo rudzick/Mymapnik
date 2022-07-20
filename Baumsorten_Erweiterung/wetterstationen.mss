@@ -6,7 +6,7 @@
        /* marker-file: url('extra_symbols/Anemometer_-_The_Noun_Project.svg'); */
        marker-file: url('extra_symbols/weather-vane.svg');
        [zoom = 21] {
-             marker-height: 20px;
+             marker-height: 15px;
              text-name:  [stationsname]  + '\n' + [nummer] + '\n' + [wmo_id] + '\n' + [betreiber];
              text-wrap-character: '\n';
              text-face-name: @standard-font;
@@ -17,7 +17,7 @@
              text-halo-fill: @standard-halo-fill;
              text-placement: interior;
              text-size: 8;
-             text-dy: 15;
+             text-dy: 13;
        }
        [zoom >= 22] {
              marker-height: 40px;
