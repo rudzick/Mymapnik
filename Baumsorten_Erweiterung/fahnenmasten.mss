@@ -22,7 +22,7 @@
        }
        [zoom >= 23] {
              marker-height: 40px;
-             text-name:  [operator]  + '\n' + [flagtype] + '\n' + [country] + '\n' + [fahnenmasthoehe];
+             text-name:  [operator]  + '\n' + [flagtype] + '\n' + [country] + '\n' + [flagname] + '\n' + [flagdescription] + '\n' + [fahnenmasthoehe];
              text-wrap-character: '\n';
              text-face-name: @standard-font;
              text-wrap-width: 10;
