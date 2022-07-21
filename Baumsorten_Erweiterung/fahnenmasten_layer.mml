@@ -11,6 +11,8 @@
               tags->'operator' AS operator,
               tags->'flag:type' AS flagtype,
               tags->'country' AS country,
+              tags->'name' AS flagname,	      
+              tags->'description' AS flagdescription,	      
               CASE
                WHEN tags->'height' <> NULL THEN CONCAT('Höhe', E'\u00a0', tags->'height')
               END AS fahnenmasthoehe
