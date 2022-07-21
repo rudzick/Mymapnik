@@ -1,5 +1,5 @@
 #fahnenmasten {
-    [man_made = 'flagpole'][historic <> 'memorial'][zoom >= 20] {
+    [man_made = 'flagpole'][historic != 'memorial'][zoom >= 20] {
        marker-height: 10px;
        marker-placement: interior;
        marker-clip: false;
