@@ -1,6 +1,6 @@
 #strassenschraenke {
     [man_made = 'street_cabinet'][zoom >= 20] {
-       marker-height: 10px;
+       marker-height: 8px;
        marker-placement: interior;
        marker-clip: false;
        marker-file: url('extra_symbols/street_cabinet.svg');
