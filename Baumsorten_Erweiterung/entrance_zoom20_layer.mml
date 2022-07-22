@@ -1,0 +1,18 @@
+  - id: entrance_zoom20
+    class: entrance_zoom20
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+       (SELECT
+            way,
+            tags->'entrance' AS entrance_zoom20,
+            access
+          FROM planet_osm_point
+          WHERE (tags->'entrance') IS NOT NULL AND
+            (tags->'indoor' = 'no'
+            OR (tags->'indoor') IS NULL))
+        AS entrances_zoom20
+    properties:
+      minzoom: 20

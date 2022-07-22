@@ -45,6 +45,7 @@ cat strassenbrunnen_layer.mml >> $PROJEKTFILE
 cat wetterstationen_layer.mml >> $PROJEKTFILE
 cat strassenschraenke_layer.mml >> $PROJEKTFILE
 cat fahnenmasten_layer.mml >> $PROJEKTFILE
+cat entrance_zoom20_layer.mml >> $PROJEKTFILE
 cat leisure_description_layer.mml >> $PROJEKTFILE
 cp $PROJEKTFILE $CARTO_DIR
 cd $CARTO_DIR

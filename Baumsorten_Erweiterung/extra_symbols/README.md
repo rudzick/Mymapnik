@@ -54,6 +54,7 @@ Anemometer_-_The_Noun_Project.svg
 https://josm.openstreetmap.de/browser/josm/trunk/images/presets/monitoring_station.png?rev=6385&order=name
 https://ian.umces.edu/media-library/weather-vane/
 Tracey Saxby, Integration and Application Network (ian.umces.edu/media-library)
+https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/monitoring_station.svg
 
 ## Straßenschränke (man_made= street_cabinet)
 Power_cable_distribution_cabinet.svg
@@ -64,6 +65,14 @@ https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/street_ca
 https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/flag.svg
 flag.svg
 
+## Eingänge
+https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/
+entrance_yes.svg
+entrance_main.svg
+entrance_service.svg
+entrance_exit.svg
+entrance_emergency.svg
 
-
+## Strassenlaternen
+https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/streetlamp.svg
 
