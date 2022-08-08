@@ -68,10 +68,9 @@
         text-dy: 43;
 	text-size: 20;
     }
+    text-face-name: @standard-font;
     [cultivar != '0'] {
         text-face-name: @oblique-fonts;
-    } {
-        text-face-name: @standard-font;
     }
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
