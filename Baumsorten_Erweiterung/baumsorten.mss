@@ -92,8 +92,8 @@
         text-size: 14;
     }
     [zoom >= 23] {
-        text-dy: 63;
-        text-size: 17;
+        text-dy: 65;
+        text-size: 16;
     }    
     [obstbaumsorte = '0']{
        [zoom >= 22] {
@@ -102,7 +102,7 @@
        }
        [zoom >= 23] {
            text-dy: 43;
-           text-size: 17;
+           text-size: 16;
        }
     }
     text-face-name: @standard-font;
