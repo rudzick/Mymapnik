@@ -70,7 +70,7 @@
     }
     [cultivar != '0'] {
         text-face-name: @oblique-fonts;
-    } [cultivar = '0'] {
+    } {
         text-face-name: @standard-font;
     }
     text-halo-radius: @standard-halo-radius;
