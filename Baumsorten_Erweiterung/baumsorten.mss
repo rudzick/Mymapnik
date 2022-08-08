@@ -78,7 +78,7 @@
     [zoom = 22] {
       text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter];
     } [zoom >= 23] {
-      text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter] + ' ' + [hoehe] + ' ' + [Stammumfang]  + ' ' + [kronenbreite];
+      text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter] + ' ' + [hoehe] + ' ' + [stammumfang]  + ' ' + [kronenbreite];
     }
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
