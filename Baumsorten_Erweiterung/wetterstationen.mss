@@ -3,8 +3,9 @@
        marker-height: 10px;
        marker-placement: interior;
        marker-clip: false;
-       /* marker-file: url('extra_symbols/Anemometer_-_The_Noun_Project.svg'); */
-       marker-file: url('extra_symbols/weather-vane.svg');
+       /* marker-file: url('extra_symbols/Anemometer_-_The_Noun_Project.svg');
+       marker-file: url('extra_symbols/weather-vane.svg'); */
+       marker-file: url('extra_symbols/monitoring_station.svg');
        [zoom = 21] {
              marker-height: 15px;
              text-name:  [stationsname]  + '\n' + [nummer] + '\n' + [wmo_id] + '\n' + [betreiber];
