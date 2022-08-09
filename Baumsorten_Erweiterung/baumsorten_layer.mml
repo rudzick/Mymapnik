@@ -47,7 +47,8 @@
              CASE
               WHEN NOT COALESCE(tags->'taxon:cultivar:de',tags->'taxon:cultivar','0') = '0' THEN CONCAT('''',COALESCE(tags->'taxon:cultivar:de',tags->'taxon:cultivar'),'''') 
               ELSE COALESCE(tags->'taxon:cultivar:de',tags->'taxon:de',tags->'taxon:cultivar',tags->'taxon')
-             END AS obstbaumsorte
+             END AS obstbaumsorte,
+             COALESCE(tags->'taxon:cultivar:de',tags->'taxon:cultivar','0') AS cultivar,
             FROM planet_osm_point                                                                   
              WHERE "natural" = 'tree'
               ) AS feature                                                                          
@@ -117,7 +118,6 @@
        (SELECT
             way,
             COALESCE(tags->'taxon:de',tags->'taxon:cultivar:de',tags->'taxon:cultivar',tags->'taxon','0') AS obstbaumsorte,
-            COALESCE(tags->'taxon:cultivar:de',tags->'taxon:cultivar','0') AS cultivar,
             REPLACE(REPLACE(tags->'sex','female','weibl.'),'male','männl.') AS geschlecht,
             -- REPLACE(tags->'description',' ',E'\u00a0') AS wuchs,
             REPLACE(COALESCE(tags->'description',tags->'tree:cut:de',tags->'tree:cut'),' ',E'\u00a0') AS wuchs,
