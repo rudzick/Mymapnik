@@ -75,6 +75,6 @@ entrance_emergency.svg
 
 ## Strassenlaternen
 https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/streetlamp.svg
-https://thenounproject.com/icon/street-light-3755/
-noun-street-light-3755_CCBY.svg
+https://thenounproject.com/icon/streetlight-4257283/
+noun-streetlight-4257283_CCBY.svg
 
