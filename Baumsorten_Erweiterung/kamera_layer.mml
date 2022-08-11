@@ -8,7 +8,7 @@
         (SELECT
             way, "man_made"
           FROM planet_osm_point                                                                     
-          WHERE "Man_made" = 'surveillance'
+          WHERE "man_made" = 'surveillance'
         ) AS  ueberwachungskamera                                                                        
     properties:
       minzoom: 20
