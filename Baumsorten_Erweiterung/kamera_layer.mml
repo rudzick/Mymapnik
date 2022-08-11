@@ -1,0 +1,14 @@
+  - id: ueberwachungskameras
+    class: ueberwachungskameras
+    geometry: point
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, "man_made"
+          FROM planet_osm_point                                                                     
+          WHERE "Man_made" = 'surveillance'
+        ) AS  ueberwachungskamera                                                                        
+    properties:
+      minzoom: 20

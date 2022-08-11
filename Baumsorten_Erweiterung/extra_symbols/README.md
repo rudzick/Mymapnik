@@ -78,3 +78,8 @@ https://github.com/JOSM/josm/blob/master/resources/images/presets/misc/streetlam
 https://thenounproject.com/icon/streetlight-4257283/
 noun-streetlight-4257283_CCBY.svg
 
+## Überwachungskameras
+https://github.com/JOSM/josm/blob/master/resources/images/presets/service/surveillance.svg
+surveillance.svg
+
+
