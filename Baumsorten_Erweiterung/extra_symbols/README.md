@@ -10,6 +10,8 @@ https://commons.wikimedia.org/wiki/Maki_icons
 ###Bienenstöcke:
 [https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg](https://wiki.openstreetmap.org/wiki/File:ID-man-made-beehive.svg)
 ID-man-made-beehive.svg
+https://github.com/JOSM/josm/blob/master/resources/images/presets/craft/beekeeper.svg
+beekeeper.svg
 
 ###Hydranten:
 [https://wiki.openstreetmap.org/wiki/File:Emergency_fire_hydrant.svg](https://wiki.openstreetmap.org/wiki/File:Emergency_fire_hydrant.svg)
