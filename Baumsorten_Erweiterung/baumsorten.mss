@@ -84,7 +84,7 @@
       text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter] + ' ' + [hoehe] + ' ' + [stammumfang]  + ' ' + [kronenbreite];
     }
     text-size: @standard-font-size;
-    text-wrap-width: 512;
+    text-wrap-width: @standard-wrap-width;
     text-line-spacing: @standard-line-spacing-size;
     text-fill: brown;
     text-opacity: 0.75;
