@@ -120,7 +120,7 @@
             COALESCE(tags->'taxon:de',tags->'taxon:cultivar:de',tags->'taxon:cultivar',tags->'taxon','0') AS obstbaumsorte,
             REPLACE(REPLACE(tags->'sex','female','weibl.'),'male','männl.') AS geschlecht,
             -- REPLACE(tags->'description',' ',E'\u00a0') AS wuchs,
-            REPLACE(COALESCE(tags->'description',tags->'tree:cut:de',tags->'tree:cut'),' ',E'\u00a0') AS wuchs,
+            REPLACE(COALESCE(tags->'description',tags->'description:de',tags->'tree:cut:de',tags->'tree:cut'),' ',E'\u00a0') AS wuchs,
             REPLACE(REPLACE(REPLACE(tags->'start_date','before','vor'),'after','nach'),' ',E'\u00a0') AS baumalter,
               CASE
                 WHEN tags->'height' <> 'none' THEN CONCAT('Höhe', E'\u00a0', tags->'height')
