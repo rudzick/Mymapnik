@@ -79,12 +79,12 @@
 #wuchs {
   [zoom >= 22] {
     [zoom = 22] {
-      text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter];
+      text-name: [geschlecht] + '\n' + [wuchs] + '\n' + [baumalter];
     } [zoom >= 23] {
       text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter] + ' ' + [hoehe] + ' ' + [stammumfang]  + ' ' + [kronenbreite];
     }
     text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
+    text-wrap-width: 128;
     text-line-spacing: @standard-line-spacing-size;
     text-fill: brown;
     text-opacity: 0.75;
