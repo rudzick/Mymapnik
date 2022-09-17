@@ -88,10 +88,10 @@
     text-line-spacing: @standard-line-spacing-size;
     text-fill: brown;
     text-opacity: 0.75;
-    text-dy: 16;
+    text-dy: 14;
     text-size: 14;
     [zoom >= 22] {
-        text-dy: 57;
+        text-dy: 55;
         text-size: 14;
     }
     [zoom >= 23] {
