@@ -28,6 +28,13 @@
              WHEN tags->'species' = 'Acer pseudoplatanus' OR tags->'species' = 'acer pseudoplatanus' THEN 'Bergahorn'
              WHEN tags->'species' = 'Aesculus hippocastanum' OR tags->'species' = 'aesculus hippocastanum' THEN 'Weiße Rosskastanie'
              WHEN tags->'species' = 'Aesculus × carnea' OR tags->'species' = 'aesculus × carnea' THEN 'Fleischrote Rosskastanie'
+             WHEN tags->'species' = 'Fagus sylvatica' OR tags->'species' = 'fagus sylvatica' THEN 'Rotbuche'
+             WHEN tags->'species' = 'Castanea sativa' OR tags->'species' = 'castanea sativa' THEN 'Edelkastanie'
+             WHEN tags->'species' = 'Taxus baccata' OR tags->'species' = 'taxus baccata' THEN 'Eibe'
+             WHEN tags->'species' = 'Liriodendron tulipifera' OR tags->'species' = 'liriodendron tulipifera' THEN 'Trompetenbaum'
+             WHEN tags->'species' = 'Cryptomeria japonica' OR tags->'species' = 'cryptomeria japonica' THEN 'Sicheltanne'
+             WHEN tags->'species' = 'Ginkgo biloba' OR tags->'species' = 'ginkgo biloba' THEN 'Ginkgo'
+             WHEN tags->'species' = 'Platanus × hispanica' OR tags->'species' = 'platanus × hispanica' THEN 'Ahornblättrige Platane'
              ELSE COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus')
             END AS obstbaumart
             FROM planet_osm_point                                                                   
@@ -102,6 +109,13 @@
               WHEN tags->'species' = 'aesculus hippocastanum' THEN 'Weiße Rosskastanie'
               WHEN tags->'species' = 'Aesculus × carnea' THEN 'Fleischrote Rosskastanie'
               WHEN tags->'species' = 'aesculus × carnea' THEN 'Fleischrote Rosskastanie'
+              WHEN tags->'species' = 'Fagus sylvatica' OR tags->'species' = 'fagus sylvatica' THEN 'Rotbuche'
+              WHEN tags->'species' = 'Castanea sativa' OR tags->'species' = 'castanea sativa' THEN 'Edelkastanie'
+              WHEN tags->'species' = 'Taxus baccata' OR tags->'species' = 'taxus baccata' THEN 'Eibe'
+              WHEN tags->'species' = 'Liriodendron tulipifera' OR tags->'species' = 'liriodendron tulipifera' THEN 'Trompetenbaum'
+              WHEN tags->'species' = 'Cryptomeria japonica' OR tags->'species' = 'cryptomeria japonica' THEN 'Sicheltanne'
+              WHEN tags->'species' = 'Ginkgo biloba' OR tags->'species' = 'ginkgo biloba' THEN 'Ginkgo'
+              WHEN tags->'species' = 'Platanus × hispanica' OR tags->'species' = 'platanus × hispanica' THEN 'Ahornblättrige Platane'
              ELSE REPLACE(COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus'),' ',E'\u00a0')
             END AS obstbaumart
             FROM planet_osm_point                                                                   
