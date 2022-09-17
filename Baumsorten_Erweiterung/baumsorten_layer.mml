@@ -34,7 +34,7 @@
              WHEN tags->'species' = 'Liriodendron tulipifera' OR tags->'species' = 'liriodendron tulipifera' THEN 'Trompetenbaum'
              WHEN tags->'species' = 'Cryptomeria japonica' OR tags->'species' = 'cryptomeria japonica' THEN 'Sicheltanne'
              WHEN tags->'species' = 'Ginkgo biloba' OR tags->'species' = 'ginkgo biloba' THEN 'Ginkgo'
-             WHEN tags->'species' = 'Platanus × hispanica' OR tags->'species' = 'platanus × hispanica' THEN 'Ahornblättrige Platane'
+             WHEN tags->'species' = 'Platanus × hispanica' OR tags->'species' = 'Platanus X hispanica' THEN 'Ahornblättrige Platane'
              ELSE COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus')
             END AS obstbaumart
             FROM planet_osm_point                                                                   
@@ -115,7 +115,7 @@
               WHEN tags->'species' = 'Liriodendron tulipifera' OR tags->'species' = 'liriodendron tulipifera' THEN 'Trompetenbaum'
               WHEN tags->'species' = 'Cryptomeria japonica' OR tags->'species' = 'cryptomeria japonica' THEN 'Sicheltanne'
               WHEN tags->'species' = 'Ginkgo biloba' OR tags->'species' = 'ginkgo biloba' THEN 'Ginkgo'
-              WHEN tags->'species' = 'Platanus × hispanica' OR tags->'species' = 'platanus × hispanica' THEN 'Ahornblättrige Platane'
+              WHEN tags->'species' = 'Platanus X hispanica' OR tags->'species' = 'Platanus x hispanica' THEN 'Ahornblättrige Platane'
              ELSE REPLACE(COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus'),' ',E'\u00a0')
             END AS obstbaumart
             FROM planet_osm_point                                                                   
