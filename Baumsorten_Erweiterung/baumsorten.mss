@@ -79,7 +79,7 @@
 #wuchs {
   [zoom >= 22] {
     [zoom = 22] {
-       text-name: [geschlecht] + '\n' + [wuchs] + '\n' + [baumalter];
+       text-name: [geschlecht] + [wuchs] + '\n' + [baumalter];
     } [zoom >= 23] {
       text-name: [geschlecht] + ' ' + [wuchs] + ' ' + [baumalter] + ' ' + [hoehe] + ' ' + [stammumfang]  + ' ' + [kronenbreite];
     }

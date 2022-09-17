@@ -118,7 +118,9 @@
        (SELECT
             way,
             COALESCE(tags->'taxon:de',tags->'taxon:cultivar:de',tags->'taxon:cultivar',tags->'taxon','0') AS obstbaumsorte,
-            REPLACE(REPLACE(tags->'sex','female','weibl.'),'male','männl.') AS geschlecht,
+            CASE
+               WHEN tags->'sex' <> 'none' THEN CONCAT( REPLACE(REPLACE(tags->'sex','female','weibl.'),'male','männl.'),E'\u000a')
+            END AS geschlecht,
             -- REPLACE(tags->'description',' ',E'\u00a0') AS wuchs,
             -- REPLACE(COALESCE(tags->'description',tags->'description:de',tags->'tree:cut:de',tags->'tree:cut'),' ',E'\u00a0') AS wuchs,
             COALESCE(tags->'description',tags->'description:de',tags->'tree:cut:de',tags->'tree:cut') AS wuchs,
