@@ -81,7 +81,8 @@
     [zoom = 22] {
       [geschlecht != ''] {
          text-name: [geschlecht] + '\n' + [wuchs] + '\n' + [baumalter];
-      } [geschlecht = ''] {
+      }
+      [geschlecht = ''] {
          text-name: [wuchs] + '\n' + [baumalter];
      }
     } [zoom >= 23] {
