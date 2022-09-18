@@ -15,7 +15,9 @@ PROJEKTFILEXML="project_mymapnik.xml"
 cp $CARTO_DIR/project.mml Baumsorten_Erweiterung/$PROJEKTFILE
 cd Baumsorten_Erweiterung/
 # Einfuegen der zusaetzlichen .mss-Files aus my_mms-files_cwd.mml
+sed -s "s+Baumsorten_Erweiterung+$CWD/Baumsorten_Erweiterung+g" my_mms-files.mml > my_mms-files_cwd.mml
 sed -n -i -e '/Layer:/r my_mms-files_cwd.mml' -e 1x -e '2,${x;p}' -e '${x;p}' project_mymapnik.mml
+rm my_mms-files_cwd.mml
 sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik_mypostgis.diff > project_mymapnik_mypostgis_cwd.diff
 patch -p0 $PROJEKTFILE < project_mymapnik_mypostgis_cwd.diff
 rm project_mymapnik_mypostgis_cwd.diff
