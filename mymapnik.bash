@@ -36,7 +36,7 @@ cat kamera_layer.mml >> $PROJEKTFILE
 cat leisure_description_layer.mml >> $PROJEKTFILE
 cp $PROJEKTFILE $CARTO_DIR
 cd $CARTO_DIR
-/usr/local/bin/carto $PROJEKTFILE > $PROJEKTFILEXML
+/usr/local/bin/carto --quiet $PROJEKTFILE > $PROJEKTFILEXML
 mv $PROJEKTFILE $CWD
 echo $CARTO_DIR/$PROJEKTFILEXML
 
