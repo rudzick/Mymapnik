@@ -4,42 +4,19 @@
     Datasource:
       <<: *osm2pgsql
       table: |-
-       (SELECT
-            way,
-            CASE
-             WHEN tags->'species:de' IS NOT NULL THEN REPLACE(tags->'species:de',' ',E'\u00a0')     	    
-             WHEN tags->'species' = 'Pyrus communis' OR tags->'species' = 'pyrus communis' THEN 'Birne'
-             WHEN tags->'species' = 'Malus domestica' OR tags->'species' = 'malus domestica' THEN 'Apfel'
-             WHEN tags->'species' = 'Prunus domestica' OR tags->'species' = 'prunus domestica' THEN 'Pflaume'
-             WHEN tags->'species' = 'Prunus avium' OR tags->'species' = 'prunus avium' THEN 'Süßkirsche'
-             WHEN tags->'species' = 'Prunus cerasus' OR tags->'species' = 'prunus cerasus' THEN 'Sauerkirsche'
-             WHEN tags->'species' = 'Prunus armeniaca' OR tags->'species' = 'prunus armeniaca' THEN 'Aprikose'
-             WHEN tags->'species' = 'Prunus persica' OR tags->'species' = 'prunus persica' THEN 'Pfirsich'
-             WHEN tags->'species' = 'Cydonia oblonga' OR tags->'species' = 'cydonia oblonga' THEN 'Quitte'
-             WHEN tags->'species' = 'Mespilus germanica' OR tags->'species' = 'mespilus germanica' THEN 'Mispel'
-             WHEN tags->'species' = 'Juglans regia' OR tags->'species' = 'juglans regia' THEN 'Walnuss'
-             WHEN tags->'species' = 'Ficus carica' OR tags->'species' = 'ficus carica' THEN 'Feige'
-             WHEN tags->'species' = 'Diospyros kaki' OR tags->'species' = 'diospyros kaki' THEN 'Kakibaum'
-             WHEN tags->'species' = 'Prunus dulcis' OR tags->'species' = 'prunus dulcis' THEN 'Mandelbaum'
-             WHEN tags->'species' = 'Syringa vulgaris' OR tags->'species' = 'syringa vulgaris' THEN 'Flieder'
-             WHEN tags->'species' = 'Tilia cordata' OR tags->'species' = 'tilia cordata' THEN 'Winterlinde'
-             WHEN tags->'species' = 'Tilia platyphyllos' OR tags->'species' = 'Tilia grandifolia' THEN 'Sommerlinde'
-             WHEN tags->'species' = 'Acer platanoides' OR tags->'species' = 'acer platanoides' THEN 'Spitzahorn'
-             WHEN tags->'species' = 'Acer pseudoplatanus' OR tags->'species' = 'acer pseudoplatanus' THEN 'Bergahorn'
-             WHEN tags->'species' = 'Aesculus hippocastanum' OR tags->'species' = 'aesculus hippocastanum' THEN 'Weiße Rosskastanie'
-             WHEN tags->'species' = 'Aesculus × carnea' OR tags->'species' = 'aesculus × carnea' THEN 'Fleischrote Rosskastanie'
-             WHEN tags->'species' = 'Fagus sylvatica' OR tags->'species' = 'fagus sylvatica' THEN 'Rotbuche'
-             WHEN tags->'species' = 'Castanea sativa' OR tags->'species' = 'castanea sativa' THEN 'Esskastanie'
-             WHEN tags->'species' = 'Taxus baccata' OR tags->'species' = 'taxus baccata' THEN 'Eibe'
-             WHEN tags->'species' = 'Liriodendron tulipifera' OR tags->'species' = 'liriodendron tulipifera' THEN 'Tulpenbaum'
-             WHEN tags->'species' = 'Cryptomeria japonica' OR tags->'species' = 'cryptomeria japonica' THEN 'Sicheltanne'
-             WHEN tags->'species' = 'Ginkgo biloba' OR tags->'species' = 'ginkgo biloba' THEN 'Ginkgo'
-             WHEN tags->'species' = 'Platanus X hispanica' OR tags->'species' = 'Platanus x hispanica' THEN 'Ahornblättrige Platane'
-             ELSE COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus')
-            END AS obstbaumart
-            FROM planet_osm_point                                                                   
-             WHERE "natural" = 'tree'
-              ) AS feature                                                                          
+           (SELECT p.way,
+               COALESCE( p.tags->'species:de'
+                       , s.name
+                       , p.tags->'species'
+                       , p.tags->'genus:de'
+                       , p.tags->'genus'
+                       ) AS obstbaumart
+          FROM planet_osm_point p
+          LEFT JOIN tree_species s
+            ON LOWER(p.tags->'species') = s.species
+           AND s.lang='de_DE'
+         WHERE p."natural" = 'tree'
+       ) AS feature                                                                   
     properties:
        minzoom: 19
        maxzoom: 21
@@ -67,60 +44,19 @@
     Datasource:
       <<: *osm2pgsql
       table: |-
-       (SELECT
-            way,
-             CASE
-              WHEN tags->'species:de' IS NOT NULL THEN REPLACE(tags->'species:de',' ',E'\u00a0')     
-              WHEN tags->'species' = 'Pyrus communis' THEN 'Birne'
-              WHEN tags->'species' = 'pyrus communis' THEN 'Birne'
-              WHEN tags->'species' = 'Malus domestica' THEN 'Apfel'
-              WHEN tags->'species' = 'malus domestica' THEN 'Apfel'
-              WHEN tags->'species' = 'Prunus domestica' THEN 'Pflaume'
-              WHEN tags->'species' = 'prunus domestica' THEN 'Pflaume'
-              WHEN tags->'species' = 'Prunus avium' THEN 'Süßkirsche'
-              WHEN tags->'species' = 'prunus avium' THEN 'Süßkirsche'
-              WHEN tags->'species' = 'Prunus cerasus' THEN 'Sauerkirsche'
-              WHEN tags->'species' = 'prunus armeniaca' THEN 'Aprikose'
-              WHEN tags->'species' = 'Prunus persica' THEN 'Pfirsich'
-              WHEN tags->'species' = 'prunus persica' THEN 'Pfirsich'
-              WHEN tags->'species' = 'Cydonia oblonga' THEN 'Quitte'
-              WHEN tags->'species' = 'cydonia oblonga' THEN 'Quitte'
-              WHEN tags->'species' = 'Mespilus germanica' THEN 'Mispel'
-              WHEN tags->'species' = 'mespilus germanica' THEN 'Mispel'
-              WHEN tags->'species' = 'Juglans regia' THEN 'Walnuss'
-              WHEN tags->'species' = 'juglans regia' THEN 'Walnuss'
-              WHEN tags->'species' = 'Ficus carica' THEN 'Feige'
-              WHEN tags->'species' = 'ficus carica' THEN 'Feige'
-              WHEN tags->'species' = 'Diospyros kaki' THEN 'Kakibaum'
-              WHEN tags->'species' = 'diospyros kaki' THEN 'Kakibaum'
-              WHEN tags->'species' = 'Prunus dulcis' THEN 'Mandelbaum'
-              WHEN tags->'species' = 'prunus dulcis' THEN 'Mandelbaum'
-              WHEN tags->'species' = 'Syringa vulgaris' THEN 'Flieder'
-              WHEN tags->'species' = 'syringa vulgaris' THEN 'Flieder'
-              WHEN tags->'species' = 'Tilia cordata' THEN 'Winterlinde'
-              WHEN tags->'species' = 'tilia cordata' THEN 'Winterlinde'
-              WHEN tags->'species' = 'Tilia platyphyllos' OR tags->'species' = 'Tilia grandifolia' THEN 'Sommerlinde'
-              WHEN tags->'species' = 'tilia platyphyllos' OR tags->'species' = 'Tilia grandifolia' THEN 'Sommerlinde'
-              WHEN tags->'species' = 'Acer platanoides' THEN 'Spitzahorn'
-              WHEN tags->'species' = 'acer platanoides' THEN 'Spitzahorn'
-              WHEN tags->'species' = 'Acer pseudoplatanus' THEN 'Bergahorn'
-              WHEN tags->'species' = 'acer pseudoplatanus' THEN 'Bergahorn'
-              WHEN tags->'species' = 'Aesculus hippocastanum' THEN 'Weiße Rosskastanie'
-              WHEN tags->'species' = 'aesculus hippocastanum' THEN 'Weiße Rosskastanie'
-              WHEN tags->'species' = 'Aesculus × carnea' THEN 'Fleischrote Rosskastanie'
-              WHEN tags->'species' = 'aesculus × carnea' THEN 'Fleischrote Rosskastanie'
-              WHEN tags->'species' = 'Fagus sylvatica' OR tags->'species' = 'fagus sylvatica' THEN 'Rotbuche'
-              WHEN tags->'species' = 'Castanea sativa' OR tags->'species' = 'castanea sativa' THEN 'Esskastanie'
-              WHEN tags->'species' = 'Taxus baccata' OR tags->'species' = 'taxus baccata' THEN 'Eibe'
-              WHEN tags->'species' = 'Liriodendron tulipifera' OR tags->'species' = 'liriodendron tulipifera' THEN 'Tulpenbaum'
-              WHEN tags->'species' = 'Cryptomeria japonica' OR tags->'species' = 'cryptomeria japonica' THEN 'Sicheltanne'
-              WHEN tags->'species' = 'Ginkgo biloba' OR tags->'species' = 'ginkgo biloba' THEN 'Ginkgo'
-              WHEN tags->'species' = 'Platanus X hispanica' OR tags->'species' = 'Platanus x hispanica' THEN 'Ahornblättrige Platane'
-             ELSE REPLACE(COALESCE(tags->'species:de',tags->'species',tags->'genus:de',tags->'genus'),' ',E'\u00a0')
-            END AS obstbaumart
-            FROM planet_osm_point                                                                   
-             WHERE "natural" = 'tree'
-              ) AS feature                                                                          
+        (SELECT p.way,
+               COALESCE( p.tags->'species:de'
+                       , s.name
+                       , p.tags->'species'
+                       , p.tags->'genus:de'
+                       , p.tags->'genus'
+                       ) AS obstbaumart
+          FROM planet_osm_point p
+          LEFT JOIN tree_species s
+            ON LOWER(p.tags->'species') = s.species
+           AND s.lang='de_DE'
+         WHERE p."natural" = 'tree'
+       ) AS feature                                                                           
     properties:
        minzoom: 22
   - id: wuchs
