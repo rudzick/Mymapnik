@@ -16,7 +16,7 @@
                     ON LOWER(p.tags->'species') = s.species
                   AND s.lang='de_DE'
               WHERE p."natural" = 'tree'
-           ) AS feature -- hallo                                         
+           ) AS feature -- 1                                         
     properties:
        minzoom: 19
        maxzoom: 21
@@ -38,7 +38,7 @@
                     ON LOWER(p.tags->'species') = s.species
                   AND s.lang='de_DE'
              WHERE p."natural" = 'tree'
-           ) AS feature
+           ) AS feature -- 2
     properties:
        minzoom: 20
   - id: baumsorten_zoom_22
@@ -59,7 +59,7 @@
             ON LOWER(p.tags->'species') = s.species
            AND s.lang='de_DE'
          WHERE p."natural" = 'tree'
-       ) AS feature                                                                           
+       ) AS feature -- 3                                                                      
     properties:
        minzoom: 22
   - id: wuchs
@@ -92,6 +92,6 @@
               END AS kronenbreite	      
             FROM planet_osm_point                                                                   
              WHERE "natural" = 'tree'
-              ) AS feature                                                                          
+              ) AS feature -- 4                                                                        
     properties:
        minzoom: 22
