@@ -38,7 +38,7 @@
                     ON LOWER(p.tags->'species') = s.species
                   AND s.lang='de_DE'
              WHERE p."natural" = 'tree'
-           ) AS feature                                                                   
+            ) AS feature                                                                   
     properties:
        minzoom: 20
   - id: baumsorten_zoom_22
