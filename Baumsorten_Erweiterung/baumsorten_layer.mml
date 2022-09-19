@@ -11,12 +11,12 @@
                                              , p.tags->'genus:de'
                                              , p.tags->'genus'
                                              ) AS obstbaumart
-             FROM planet_osm_point p
-             LEFT JOIN tree_species s
-                 ON LOWER(p.tags->'species') = s.species
-               AND s.lang='de_DE'
-         WHERE p."natural" = 'tree'
-       ) AS feature                                                                   
+                FROM planet_osm_point p
+                LEFT JOIN tree_species s
+                    ON LOWER(p.tags->'species') = s.species
+                  AND s.lang='de_DE'
+             WHERE p."natural" = 'tree'
+          ) AS feature                                                                   
     properties:
        minzoom: 19
        maxzoom: 21
@@ -33,12 +33,12 @@
                                              , p.tags->'genus:de'
                                              , p.tags->'genus'
                                              ) AS obstbaumart
-             FROM planet_osm_point p
-             LEFT JOIN tree_species s
-                 ON LOWER(p.tags->'species') = s.species
-               AND s.lang='de_DE'
-         WHERE p."natural" = 'tree'
-       ) AS feature                                                                   
+                FROM planet_osm_point p
+                LEFT JOIN tree_species s
+                    ON LOWER(p.tags->'species') = s.species
+                  AND s.lang='de_DE'
+            WHERE p."natural" = 'tree'
+          ) AS feature                                                                   
     properties:
        minzoom: 20
   - id: baumsorten_zoom_22
