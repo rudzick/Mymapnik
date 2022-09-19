@@ -54,12 +54,12 @@
                        , p.tags->'genus:de'
                        , p.tags->'genus'
                        ) AS obstbaumart
-          FROM planet_osm_point p
-          LEFT JOIN tree_species s
-            ON LOWER(p.tags->'species') = s.species
-           AND s.lang='de_DE'
-         WHERE p."natural" = 'tree'
-       ) AS feature -- 3                                                                      
+           FROM planet_osm_point p
+           LEFT JOIN tree_species s
+             ON LOWER(p.tags->'species') = s.species
+            AND s.lang='de_DE'
+          WHERE p."natural" = 'tree'
+        ) AS feature -- 3                                                                      
     properties:
        minzoom: 22
   - id: wuchs
