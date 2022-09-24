@@ -120,7 +120,7 @@
     marker-width: 120;
     marker-height: 120;
 }
-[natural = 'tree']::trunk {
+::trunk {
     [zoom >= 22] {
       trunk/marker-width: 12;
       trunk/marker-height: 12;
