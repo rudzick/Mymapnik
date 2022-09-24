@@ -48,7 +48,6 @@
     }
 }
 
-}
 #taxon {
     text-name: "[obstbaumsorte]";
     text-size: @standard-font-size;
