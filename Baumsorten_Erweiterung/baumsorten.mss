@@ -38,6 +38,10 @@
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
     text-placement: interior;
+    marker-fill: darken(@forest,10%);
+    marker-allow-overlap: true;
+    marker-line-width: 0;
+    marker-ignore-placement: true;
     marker-width: 60;
     marker-height: 60;
 }
