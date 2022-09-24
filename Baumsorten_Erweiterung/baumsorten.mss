@@ -38,14 +38,6 @@
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
     text-placement: interior;
-    [zoom >= 22] {
-      marker-width: 60;
-      marker-height: 60;
-    }    
-    [zoom >= 23] {
-      marker-width: 120;
-      marker-height: 120;
-    }
 }
 
 #taxon {
@@ -120,6 +112,18 @@
     text-halo-fill: @standard-halo-fill;
     text-placement: interior;
   }
+}
+#trees {
+ ::canopy {
+    [zoom >= 22] {
+      marker-width: 60;
+      marker-height: 60;
+    }    
+    [zoom >= 23] {
+      marker-width: 120;
+      marker-height: 120;
+    }
+ }
 }
 /* ::trunk {
     [zoom >= 22] {
