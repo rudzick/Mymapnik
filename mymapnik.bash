@@ -18,11 +18,11 @@ cd Baumsorten_Erweiterung/
 sed -s "s+Baumsorten_Erweiterung+$CWD/Baumsorten_Erweiterung+g" my_mms-files.mml > my_mms-files_cwd.mml
 sed -n -i -e '/Layer:/r my_mms-files_cwd.mml' -e 1x -e '2,${x;p}' -e '${x;p}' project_mymapnik.mml
 rm my_mms-files_cwd.mml
-sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik_mypostgis.diff > project_mymapnik_mypostgis_cwd.diff
-patch -p0 $PROJEKTFILE < project_mymapnik_mypostgis_cwd.diff
+#sed -s "s+Baumsorten_Erweiterung+$CWD+g" project_mymapnik_mypostgis.diff > project_mymapnik_mypostgis_cwd.diff
+#patch -p0 $PROJEKTFILE < project_mymapnik_mypostgis_cwd.diff
 rm project_mymapnik_mypostgis_cwd.diff
 cat parzellennummern_layer.mml >> $PROJEKTFILE
-sed -e '/###obstbaumarten###/r./obstbaumarten.sql' baumsorten_layer.mml >> $PROJEKTFILE
+#sed -e '/###obstbaumarten###/r./obstbaumarten.sql' baumsorten_layer.mml >> $PROJEKTFILE
 cat strauch_layer.mml >> $PROJEKTFILE
 cat bienenstoecke_layer.mml >> $PROJEKTFILE
 cat hydranten_layer.mml >> $PROJEKTFILE
