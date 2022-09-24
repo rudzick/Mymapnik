@@ -38,7 +38,7 @@
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
     text-placement: interior;
-    ::canopy {
+/*    ::canopy {
       opacity: 0.6;
       marker-fill: darken(@forest,10%);
       marker-allow-overlap: true;
@@ -55,7 +55,7 @@
       trunk/marker-width: 12;
       trunk/marker-height: 12;
       trunk/marker-ignore-placement: true;
-   }
+   } */
 }
 
 #taxon {
