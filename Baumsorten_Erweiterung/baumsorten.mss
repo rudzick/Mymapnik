@@ -120,7 +120,7 @@
     marker-width: 120;
     marker-height: 120;
 }
-::trunk {
+/* ::trunk {
     [zoom >= 22] {
       trunk/marker-width: 12;
       trunk/marker-height: 12;
@@ -129,4 +129,4 @@
       trunk/marker-width: 24;
       trunk/marker-height: 24;
     }
-}
+} */
