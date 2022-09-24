@@ -38,6 +38,8 @@
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
     text-placement: interior;
+    marker-width: 60;
+    marker-height: 60;
 }
 
 #taxon {
