@@ -112,3 +112,21 @@
     text-placement: interior;
   }
 }
+[zoom >= 22] {
+    marker-width: 60;
+    marker-height: 60;
+}
+[zoom >= 23] {
+    marker-width: 120;
+    marker-height: 120;
+}
+[natural = 'tree']::trunk {
+    [zoom >= 22] {
+      trunk/marker-width: 12;
+      trunk/marker-height: 12;
+    }
+    [zoom >= 23] {
+      trunk/marker-width: 24;
+      trunk/marker-height: 24;
+    }
+}
