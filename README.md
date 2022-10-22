@@ -1,5 +1,7 @@
 # Mymapnik
 
+** Dieses Repository wird nicht mehr weitergepflegt! Obstbaum- und Gaslichtkarte werden in [Mymapnik_openstreetmap-carto](https://github.com/rudzick/Mymapnik_openstreetmap-carto/) weiterentwickelt. **
+
 ## Baumsorten_Erweiterung
 Für große Zoomstufen erweiterter, auf [openstreetmap-carto](https://github.com/gravitystorm/openstreetmap-carto) basierender Mapnik-Style zur Anzeige von Baumarten und -sorten sowie weiteren Angaben wie Pflanzjahr und Wuchsform. Weiterhin werden Parzellennummern von Schrebergärten und Bienenstöcke dargestellt:
 [mymapnik.rudzick.it](https://mymapnik.rudzick.it "OSM-Karte mit (Obst-)Bäumen und Kleingartenparzellen") 
